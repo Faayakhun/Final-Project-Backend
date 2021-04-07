@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const {PORT, dbConfigMongo} = require('./config')
-
+const allRouter = require('./routes') 
 const verifyToken = require('./middleware/authorization')
 
 const localPort =PORT || 3000
@@ -14,6 +14,7 @@ app.get("/", (req,res)=> {
     res.send("<h1 style='text-align:center'>Welcome to my database</h1>"+"<h3 style='text-align:center'>Backend for final project</h3>"+"<h3 style='text-align:center'>Team 1 Fighting!!</h3>")
 })
 
+app.use(allRouter)
 
 
 
