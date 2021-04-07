@@ -16,8 +16,12 @@ const MandorSchema = new mongoose.Schema({
     nomorTelpon: String,
     lokasi: String,
     estHarga: Number,
-    review: String
+    review: String,
+    fotoProfil: String,
+    portofolio: [{
+        type: String
+    }]
 })
 
-const Mandor = mongoose.model("user", MandorSchema)
+const Mandor = mongoose.model("mandor", MandorSchema)
 module.exports = Mandor
