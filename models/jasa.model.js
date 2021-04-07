@@ -1,9 +1,13 @@
 const mongoose = require('mongoose')
 
 const JasaSchema = new mongoose.Schema({
-    jasa: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "jasa",
+    category: {
+        type: String,
+        require: true,
+    },
+    catatan: {
+        type: String,
+        require: true,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
