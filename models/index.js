@@ -2,6 +2,8 @@ const Mandor = require('./mandor.model')
 const User = require('./user.model')
 const Vendor = require('./vendor')
 const Project = require('./project.model')
+const Cart = require('./cart')
+const Blog = require('./blog.model')
 const Jasa = require('./jasa.model')
 
 module.exports = {
@@ -9,5 +11,7 @@ module.exports = {
     User,
     Vendor,
     Project,
+    Cart,
+    Blog,
     Jasa
 }
