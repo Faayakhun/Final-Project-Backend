@@ -21,7 +21,9 @@ const VendorSchema = new mongoose.Schema({
     portfolio : [{
         type: String
     }],
-    review: String
+    review: [{
+        type: String
+    }]
 
 });
 
