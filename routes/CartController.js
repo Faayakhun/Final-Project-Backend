@@ -1,14 +1,14 @@
-const express = require('express')
-const {Project} = require('../models')
+const express = require("express")
+const {Cart} = require('../models')
 
 const router = express.Router()
 
 router.get('/', async (req,res)=> {
-    const project = await Project.find({}).populate('vendor', 'vendorName').populate('mandor','mandorName estHarga').populate('user', 'userName').populate('jasa', '-user')
+    const cart = await Cart.find({}).populate('namaUser', 'userName').populate('vendor', 'vendorName').populate('mandor','mandorName estHarga').populate('jasa', '-user')
     try {
         res.status(200).json({
-            message: 'success get project data',
-            data: project
+            message: 'success get cart data',
+            data: cart
         })
     } catch (error) {
         console.log(error)
@@ -17,11 +17,11 @@ router.get('/', async (req,res)=> {
 })
 
 router.get('/:id', async (req,res)=> {
-    const project = await Project.findById(req.params.id)
+    const cart = await Cart.findById(req.params.id)
     try {
         res.status(200).json({
-            message: 'success get project data by id',
-            data: project
+            message: 'success get cart data by id',
+            data: cart
         })
     } catch (error) {
         console.log(error)
@@ -30,18 +30,16 @@ router.get('/:id', async (req,res)=> {
 })
 
 router.post('/', async (req,res)=> {
-    const project = await Project.create(req.body)
+    const cart = await Cart.create(req.body)
     try {
         res.status(200).json({
             message: 'success post jasa',
-            data: project
+            data: cart
         })
     } catch (error) {
         console.log(error)
         res.status(500).send(error)
     }
 })
-
-
 
 module.exports = router
