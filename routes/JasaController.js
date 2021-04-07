@@ -1,14 +1,14 @@
-const express = require('express')
-const {Project} = require('../models')
+const express = require("express")
+const {Jasa} = require('../models')
 
 const router = express.Router()
 
 router.get('/', async (req,res)=> {
-    const project = await Project.find({}).populate('vendor', 'vendorName').populate('mandor','mandorName estHarga').populate('user', 'userName').populate('jasa', '-user')
+    const jasa = await Jasa.find({}).populate('user','userName')
     try {
         res.status(200).json({
-            message: 'success get project data',
-            data: project
+            message: 'success get jasa data',
+            data: jasa
         })
     } catch (error) {
         console.log(error)
@@ -17,11 +17,11 @@ router.get('/', async (req,res)=> {
 })
 
 router.get('/:id', async (req,res)=> {
-    const project = await Project.findById(req.params.id)
+    const jasa = await Jasa.findById(req.params.id)
     try {
         res.status(200).json({
-            message: 'success get project data by id',
-            data: project
+            message: 'success get jasa data by id',
+            data: jasa
         })
     } catch (error) {
         console.log(error)
@@ -30,18 +30,16 @@ router.get('/:id', async (req,res)=> {
 })
 
 router.post('/', async (req,res)=> {
-    const project = await Project.create(req.body)
+    const jasa = await Jasa.create(req.body)
     try {
         res.status(200).json({
             message: 'success post jasa',
-            data: project
+            data: jasa
         })
     } catch (error) {
         console.log(error)
         res.status(500).send(error)
     }
 })
-
-
 
 module.exports = router

@@ -1,14 +1,14 @@
 const express = require("express")
-const {Blog} = require('../models')
+const {Vendor} = require('../models')
 
 const router = express.Router()
 
 router.get('/', async (req,res)=> {
-    const blog = await Blog.find({})
+    const vendor = await Vendor.find({})
     try {
         res.status(200).json({
-            message: 'success get blog data',
-            data: blog
+            message: 'success get vendor data',
+            data: vendor
         })
     } catch (error) {
         console.log(error)
@@ -17,11 +17,11 @@ router.get('/', async (req,res)=> {
 })
 
 router.get('/:id', async (req,res)=> {
-    const blog = await Blog.findById(req.params.id)
+    const vendor = await Vendor.findById(req.params.id)
     try {
         res.status(200).json({
-            message: 'success get blog data by id',
-            data: blog
+            message: 'success get vendor data by id',
+            data: vendor
         })
     } catch (error) {
         console.log(error)
