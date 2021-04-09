@@ -16,6 +16,9 @@ const MandorSchema = new mongoose.Schema({
     nomorTelpon: String,
     lokasi: String,
     estHarga: Number,
+    rating: {
+        type: Number
+    },
     review: [{
         type: String
     }],
