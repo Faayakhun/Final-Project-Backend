@@ -9,6 +9,14 @@ const JasaSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    jumlahHari: {
+        type: Number,
+        require: true,
+    },
+    jumlahTukang: {
+        type: Number,
+        require: true,
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user",
