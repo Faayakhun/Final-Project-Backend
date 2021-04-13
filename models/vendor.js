@@ -13,6 +13,10 @@ const VendorSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    email: {
+        type: String,
+        require: true
+    },
     alamatKantor: {
         type: String,
         require: true

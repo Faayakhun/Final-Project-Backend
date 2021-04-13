@@ -100,6 +100,7 @@ router.post('/register/vendor', async(req,res)=> {
         const vendor = await Vendor.create({
             namaVendor: vendorData.namaVendor,
             passwordVendor: hash,
+            email: vendorData.email,
             nomorTelepon: vendorData.nomorTelepon,
             alamatKantor: vendorData.alamatKantor
             
