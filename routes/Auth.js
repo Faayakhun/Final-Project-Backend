@@ -83,7 +83,8 @@ router.post('/login/mandor', async (req,res)=> {
             const token = jwt.sign(payload, "inirahasia")
             res.json({
                 message: "login success",
-                token
+                token,
+                mandor
             })
         } else {
             res.json({
@@ -125,7 +126,8 @@ router.post('/login/vendor', async (req,res)=> {
             const token = jwt.sign(payload, "inirahasia")
             res.json({
                 message: "login success",
-                token
+                token,
+                vendor
             })
         } else {
             res.json({
