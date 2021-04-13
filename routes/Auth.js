@@ -117,8 +117,8 @@ router.post('/register/vendor', async(req,res)=> {
 })
 
 router.post('/login/vendor', async (req,res)=> {
-    const {vendorName, passwordVendor} = req.body
-    let vendor = await Vendor.findOne({vendorName})
+    const {namaVendor, passwordVendor} = req.body
+    let vendor = await Vendor.findOne({namaVendor})
     if (vendor) {
         if (bcrypt.compareSync(passwordVendor, vendor.passwordVendor)){
             vendor = vendor.toObject()
