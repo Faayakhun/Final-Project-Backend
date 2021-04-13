@@ -37,7 +37,8 @@ router.post('/login/user', async (req,res)=> {
             const token = jwt.sign(payload, "inirahasia")
             res.json({
                 message: "login success",
-                token
+                token,
+                user
             })
         } else {
             res.json({
