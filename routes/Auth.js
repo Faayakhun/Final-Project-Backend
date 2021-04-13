@@ -55,6 +55,7 @@ router.post('/register/mandor', async(req,res)=> {
             mandorName: mandorData.mandorName,
             tukangName: mandorData.tukangName,
             password: hash,
+            email: mandorData.email,
             nomorTelpon: mandorData.nomorTelpon,
             lokasi: mandorData.lokasi,
             estHarga: mandorData.estHarga,
