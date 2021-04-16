@@ -5,10 +5,6 @@ const MandorSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    tukangName: [{
-        type: String,
-        require: true,
-    }],
     password: {
         type: String,
         require: true,
@@ -19,7 +15,6 @@ const MandorSchema = new mongoose.Schema({
     },
     nomorTelpon: String,
     lokasi: String,
-    estHarga: Number,
     rating: {
         type: Number
     },

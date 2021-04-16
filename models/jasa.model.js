@@ -9,12 +9,28 @@ const JasaSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    jumlahHari: {
+    areaPekerjaan: {
+        type: String,
+        require: true,
+    },
+    jenisProperti: {
+        type: String,
+        require: true,
+    },
+    lokasiProyek: {
+        type: String,
+        require: true,
+    },
+    penyediaMaterial: {
+        type: String,
+        require: true,
+    },
+    luasAreaPekerjaan: {
         type: Number,
         require: true,
     },
-    jumlahTukang: {
-        type: Number,
+    budgetUser: {
+        type: String,
         require: true,
     },
     user: {
