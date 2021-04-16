@@ -29,8 +29,12 @@ const JasaSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
-    budgetUser: {
+    durasiPekerjaan: {
         type: String,
+        require: true,
+    },
+    budgetUser: {
+        type: Number,
         require: true,
     },
     user: {
