@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    noTelepon: {
+        type: String,
+        require: true,
+    },
     alamat: {
         type: String,
         require: true,
