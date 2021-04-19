@@ -21,6 +21,10 @@ const JasaSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    alamatProyek: {
+        type: String,
+        require: true,
+    },
     luasAreaPekerjaan: {
         type: Number,
         require: true,
