@@ -29,6 +29,19 @@ router.get('/:id', async (req,res)=> {
     }
 })
 
+router.delete('/:id', async (req,res)=> {
+    const cart = await Cart.findByIdAndDelete(req.params.id)
+    try {
+        res.status(200).json({
+            message: 'success get cart data by id',
+            data: cart
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 
 
 router.post('/', async (req,res)=> {

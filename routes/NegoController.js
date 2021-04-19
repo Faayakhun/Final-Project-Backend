@@ -4,7 +4,7 @@ const {Nego} = require("../models")
 const router = express.Router()
 
 router.get('/', async (req,res)=> {
-    const nego = await Nego.find({}).populate("user","userName").populate("mandor","mandorName").populate("budget","budgetUser")
+    const nego = await Nego.find({}).populate("user","userName").populate("mandor","mandorName")
     try {
         res.status(200).json({
             message: 'success get nego data',
@@ -18,7 +18,7 @@ router.get('/', async (req,res)=> {
 
 router.get('/:id/user', async (req,res)=> {
     const userId = req.params.id
-    const nego = await Nego.find({user: userId}).populate("user","userName").populate("mandor","mandorName").populate("budget","budgetUser")
+    const nego = await Nego.find({user: userId}).populate("user","userName").populate("mandor","mandorName")
     try {
         res.status(200).json({
             message: 'success get nego data by user id',
@@ -32,7 +32,7 @@ router.get('/:id/user', async (req,res)=> {
 
 router.get('/:id/mandor', async (req,res)=> {
     const mandorId = req.params.id
-    const nego = await Nego.find({mandor: mandorId}).populate("user","userName").populate("mandor","mandorName").populate("budget","budgetUser")
+    const nego = await Nego.find({mandor: mandorId}).populate("user","userName").populate("mandor","mandorName")
     try {
         res.status(200).json({
             message: 'success get nego data by mandor id',

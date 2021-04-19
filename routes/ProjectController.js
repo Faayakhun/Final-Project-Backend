@@ -57,6 +57,18 @@ router.get('/:id/mandor', async (req,res)=> {
     }
 })
 
+router.delete('/:id', async (req,res)=> {
+    const project = await Project.findByIdAndDelete(req.params.id)
+    try {
+        res.status(200).json({
+            message: 'success delete project data by id',
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 router.post('/', async (req,res)=> {
     const project = await Project.create(req.body)
     try {
