@@ -42,6 +42,19 @@ router.put('/:id/user', async (req,res)=> {
     }
 })
 
+router.put('/:id/mandor', async (req,res)=> {
+    const budgetUpdate = req.body
+    const jasa = await Jasa.findByIdAndUpdate(req.params.id,budgetUpdate)
+    try {
+        res.status(200).json({
+            message: 'success update jasa data by user id',
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 router.post('/', async (req,res)=> {
     const jasa = await Jasa.create(req.body)
     try {
