@@ -21,10 +21,6 @@ const JasaSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    penyediaMaterial: {
-        type: String,
-        require: true,
-    },
     luasAreaPekerjaan: {
         type: Number,
         require: true,
@@ -40,6 +36,10 @@ const JasaSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user",
+    },
+    mandor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "mandor",
     },
 })
 

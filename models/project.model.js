@@ -17,6 +17,10 @@ const ProjectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "jasa",
     },
+    status: {
+        type: String,
+        require: true
+    }
 })
 
 const Project = mongoose.model("project", ProjectSchema)

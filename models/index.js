@@ -6,6 +6,7 @@ const Cart = require('./cart')
 const Blog = require('./blog.model')
 const Jasa = require('./jasa.model')
 const Payment = require('./payment.model')
+const Nego = require('./nego.model')
 
 module.exports = {
     Mandor,
@@ -15,5 +16,6 @@ module.exports = {
     Cart,
     Blog,
     Jasa,
-    Payment
+    Payment,
+    Nego
 }

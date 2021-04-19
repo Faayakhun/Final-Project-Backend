@@ -31,7 +31,7 @@ router.get('/:id', async (req,res)=> {
 
 router.get('/:id/cart', async (req,res)=> {
     const userId = req.params.id
-    const cart = await Cart.findOne({namaUser: userId}).populate('namaUser', 'userName').populate('vendor', 'namaVendor').populate('mandor','mandorName estHarga').populate('jasa', '-user')
+    const cart = await Cart.find({namaUser: userId}).populate('namaUser', 'userName').populate('vendor', 'namaVendor').populate('mandor','mandorName estHarga').populate('jasa', '-user')
     try {
         res.status(200).json({
             message: 'success get cart data by id',
