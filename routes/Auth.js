@@ -31,6 +31,11 @@ router.post('/register/user', async(req,res)=> {
 router.post('/login/user', async (req,res)=> {
     const {userName, password} = req.body
     let user = await User.findOne({userName})
+
+
+    try {
+
+
         if (user) {
             if (bcrypt.compareSync(password, user.password)){
                 user = user.toObject()
@@ -47,6 +52,13 @@ router.post('/login/user', async (req,res)=> {
                 })
             }
         }
+        
+    } catch (e) {
+        console.log("terjadi kesalahan" ,e);
+        
+    }
+   
+
     
 })
 

@@ -82,6 +82,20 @@ router.post('/', async (req,res)=> {
     }
 })
 
+router.put('/:id', async (req,res)=> {
+    const projectUpdate = req.body
+    const project = await Project.findByIdAndUpdate(req.params.id,projectUpdate)
+    try {
+        res.status(200).json({
+            message: 'success update project data by id',
+            received : projectUpdate
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 
 
 module.exports = router
