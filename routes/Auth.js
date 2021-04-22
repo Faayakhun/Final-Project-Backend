@@ -12,6 +12,7 @@ router.post('/register/user', async(req,res)=> {
             userName: userData.userName,
             password: hash,
             email: userData.email,
+            noTelepon: userData.noTelepon,
             alamat: userData.alamat
             
         })
@@ -31,7 +32,9 @@ router.post('/login/user', async (req,res)=> {
     const {userName, password} = req.body
     let user = await User.findOne({userName})
 
+
     try {
+
 
         if (user) {
             if (bcrypt.compareSync(password, user.password)){
@@ -55,6 +58,7 @@ router.post('/login/user', async (req,res)=> {
         
     }
    
+
     
 })
 
@@ -86,7 +90,7 @@ router.post('/register/mandor', async(req,res)=> {
 
 router.post('/login/mandor', async (req,res)=> {
     const {mandorName, password} = req.body
-    let mandor = await Mandor.find({mandorName})
+    let mandor = await Mandor.findOne({mandorName})
     if (mandor) {
         if (bcrypt.compareSync(password, mandor.password)){
             mandor = mandor.toObject()
@@ -130,7 +134,7 @@ router.post('/register/vendor', async(req,res)=> {
 
 router.post('/login/vendor', async (req,res)=> {
     const {namaVendor, passwordVendor} = req.body
-    let vendor = await Vendor.find({namaVendor})
+    let vendor = await Vendor.findOne({namaVendor})
     if (vendor) {
         if (bcrypt.compareSync(passwordVendor, vendor.passwordVendor)){
             vendor = vendor.toObject()
