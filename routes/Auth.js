@@ -29,23 +29,33 @@ router.post('/register/user', async(req,res)=> {
 
 router.post('/login/user', async (req,res)=> {
     const {userName, password} = req.body
-    let user = await User.find({userName})
-    if (user) {
-        if (bcrypt.compareSync(password, user.password)){
-            user = user.toObject()
-            const {password, ...payload} = user
-            const token = jwt.sign(payload, "inirahasia")
-            res.json({
-                message: "login success",
-                token,
-                user
-            })
-        } else {
-            res.json({
-                message: 'invalid login credentials'
-            })
+    let user = await User.findOne({userName})
+
+    try {
+
+        if (user) {
+            if (bcrypt.compareSync(password, user.password)){
+                user = user.toObject()
+                const {password, ...payload} = user
+                const token = jwt.sign(payload, "inirahasia")
+                res.json({
+                    message: "login success",
+                    token,
+                    user
+                })
+            } else {
+                res.json({
+                    message: 'invalid login credentials'
+                })
+            }
         }
+        
+    } catch (e) {
+        console.log("terjadi kesalahan" ,e);
+        
     }
+   
+    
 })
 
 router.post('/register/mandor', async(req,res)=> {
