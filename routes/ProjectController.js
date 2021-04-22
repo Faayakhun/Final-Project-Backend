@@ -69,6 +69,20 @@ router.delete('/:id', async (req,res)=> {
     }
 })
 
+router.delete('/:id/user', async (req,res)=> {
+    const userId = req.params.id
+    const project = await Project.findOneAndDelete({user: userId})
+    try {
+        res.status(200).json({
+            message: 'success delete project data by user id',
+            data: project
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 router.post('/', async (req,res)=> {
     const project = await Project.create(req.body)
     try {
