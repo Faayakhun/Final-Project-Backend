@@ -40,10 +40,10 @@ router.post('/login/user', async (req,res)=> {
             if (bcrypt.compareSync(password, user.password)){
                 user = user.toObject()
                 const {password, ...payload} = user
-                const token = jwt.sign(payload, "inirahasia")
+                const tokenUser = jwt.sign(payload, "inirahasia")
                 res.json({
                     message: "login success",
-                    token,
+                    tokenUser,
                     user
                 })
             } else {
@@ -95,10 +95,10 @@ router.post('/login/mandor', async (req,res)=> {
         if (bcrypt.compareSync(password, mandor.password)){
             mandor = mandor.toObject()
             const {password, ...payload} = mandor
-            const token = jwt.sign(payload, "inirahasia")
+            const tokenMandor = jwt.sign(payload, "inirahasia")
             res.json({
                 message: "login success",
-                token,
+                tokenMandor,
                 mandor
             })
         } else {
