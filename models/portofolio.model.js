@@ -6,6 +6,10 @@ const PortofolioSchema = new mongoose.Schema({
         ref : "mandor"
         
     },
+    judulPortofolio: {
+        type : String,
+        require : true
+    },
     fotoPortofolio: {
         type : String,
         require : true
