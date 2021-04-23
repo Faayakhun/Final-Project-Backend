@@ -67,6 +67,20 @@ router.delete('/:id', async (req,res)=> {
     }
 })
 
+router.delete('/:id/user', async (req,res)=> {
+    const userId = req.params.id
+    const jasa = await Jasa.findOneAndDelete({user: userId})
+    try {
+        res.status(200).json({
+            message: 'success delete jasa data by user id',
+            data: jasa
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 router.post('/', async (req,res)=> {
     const jasa = await Jasa.create(req.body)
     try {
