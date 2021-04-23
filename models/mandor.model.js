@@ -18,13 +18,7 @@ const MandorSchema = new mongoose.Schema({
     rating: {
         type: Number
     },
-    review: [{
-        type: String
-    }],
     fotoProfil: String,
-    portofolio: [{
-        type: String
-    }]
 })
 
 const Mandor = mongoose.model("mandor", MandorSchema)

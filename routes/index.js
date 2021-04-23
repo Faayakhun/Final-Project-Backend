@@ -11,6 +11,8 @@ const blogRouter = require('./BlogController')
 const paymentRouter = require('./PaymentController')
 const authRouter = require('./Auth')
 const negoRouter = require('./NegoController')
+const portofolioRouter = require('./PortofolioController')
+const reviewRouter = require('./ReviewController')
 
 router.use('/user', userRouter)
 router.use('/mandor', mandorRouter)
@@ -22,5 +24,7 @@ router.use('/jasa', jasaRouter)
 router.use('/cart', cartRouter)
 router.use('/payment', paymentRouter)
 router.use('/nego', negoRouter)
+router.use('/portofolio',portofolioRouter)
+router.use('/review',reviewRouter)
 
 module.exports = router
