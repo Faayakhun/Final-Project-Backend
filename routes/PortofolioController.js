@@ -43,6 +43,19 @@ router.get('/:id/mandor', async (req,res)=> {
     }
 })
 
+router.delete('/:id', async (req,res)=> {
+    const portofolio = await Portofolio.findByIdAndDelete(req.params.id)
+    try {
+        res.status(200).json({
+            message: 'success get portofolio data by id',
+            data: portofolio
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 router.post('/', async (req,res)=> {
     const portofolio = await Portofolio.create(req.body)
     try {
