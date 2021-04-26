@@ -4,7 +4,7 @@ const {Review} = require('../models')
 const router = express.Router()
 
 router.get('/',async (req,res) => {
-    const review = await Review.find({}).populate("mandor","mandorName")
+    const review = await Review.find({}).populate("mandor","mandorName").populate('user', 'userName')
     try {
         res.status(200).json({
             message: 'success get review data',
