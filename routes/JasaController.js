@@ -94,4 +94,18 @@ router.post('/', async (req,res)=> {
     }
 })
 
+router.put('/:id', async (req,res)=> {
+    const jasaUpdate = req.body
+    const jasa = await Jasa.findByIdAndUpdate(req.params.id,jasaUpdate)
+    try {
+        res.status(200).json({
+            message: 'success update jasa data by id',
+            received : jasaUpdate
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 module.exports = router
