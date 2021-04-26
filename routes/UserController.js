@@ -43,4 +43,17 @@ router.get('/:id/cart', async (req,res)=> {
     }
 })
 
+router.put('/:id',async (req,res) => {
+    const userUpdate = req.body
+    const user = await User.findByIdAndUpdate(req.params.id,userUpdate)
+    try {
+        res.status(200).json({
+            message: 'success update user data by id',
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 module.exports = router
