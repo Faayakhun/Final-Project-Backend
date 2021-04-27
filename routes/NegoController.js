@@ -59,4 +59,19 @@ router.post('/',async (req,res)=> {
     }
 })
 
+router.put('/:id/nego',async (req,res)=> {
+    const projectId = req.params.id
+    const statusUpdate = req.body
+    const nego = await Nego.updateMany({project: projectId},statusUpdate)
+    try {
+        res.status(200).json({
+            message: 'success post nego',
+            data: nego
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 module.exports = router
