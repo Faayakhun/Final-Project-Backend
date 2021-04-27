@@ -59,7 +59,7 @@ router.post('/',async (req,res)=> {
     }
 })
 
-router.put('/:id/nego',async (req,res)=> {
+router.put('/:id/project',async (req,res)=> {
     const projectId = req.params.id
     const statusUpdate = req.body
     const nego = await Nego.updateMany({project: projectId},statusUpdate)
