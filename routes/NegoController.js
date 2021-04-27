@@ -4,7 +4,7 @@ const {Nego} = require("../models")
 const router = express.Router()
 
 router.get('/', async (req,res)=> {
-    const nego = await Nego.find({}).populate("user","userName").populate("mandor","mandorName")
+    const nego = await Nego.find({}).populate("user","userName").populate("mandor","mandorName").populate("project")
     try {
         res.status(200).json({
             message: 'success get nego data',
