@@ -9,6 +9,10 @@ const NegoSchema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : "mandor"
     },
+    project: {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "project"
+    },
     budget: {
         type: Number,
         require: true
@@ -16,6 +20,9 @@ const NegoSchema = new mongoose.Schema({
     catatanNego: {
         type: String,
         require: true
+    },
+    status: {
+        type: String
     }
 });
 
