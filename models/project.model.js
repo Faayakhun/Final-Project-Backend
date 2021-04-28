@@ -20,6 +20,9 @@ const ProjectSchema = new mongoose.Schema({
     status: {
         type: String,
         require: true
+    },
+    negoBy : {
+        type: String
     }
 })
 
