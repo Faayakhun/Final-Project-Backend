@@ -74,4 +74,18 @@ router.put('/:id/project',async (req,res)=> {
     }
 })
 
+router.delete('/:id/project',async (req,res)=> {
+    const projectId = req.params.id
+    const nego = await Nego.deleteMany({project: projectId})
+    try {
+        res.status(200).json({
+            message: 'success delete nego',
+            data: nego
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
 module.exports = router
